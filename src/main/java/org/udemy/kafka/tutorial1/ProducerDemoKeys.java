@@ -15,7 +15,7 @@ public class ProducerDemoKeys {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         System.out.println("Hello Kafka!");
 
-        final Logger logger = LoggerFactory.getLogger(ProducerDemoKeys.class);
+        final Logger logger = LoggerFactory.getLogger(ProducerDemoKeys.class.getName());
 
         Properties properties = new Properties();
         properties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, SERVER);
