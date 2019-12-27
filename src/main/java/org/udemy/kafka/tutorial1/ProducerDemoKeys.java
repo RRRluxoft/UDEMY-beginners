@@ -15,12 +15,14 @@ public class ProducerDemoKeys {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         System.out.println("Hello Kafka!");
 
-        final Logger logger = LoggerFactory.getLogger(ProducerDemoKeys.class.getName());
+        final Logger logger = LoggerFactory.getLogger(ProducerDemoKeys.class);
 
         Properties properties = new Properties();
         properties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, SERVER);
         properties.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         properties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+        properties.setProperty("", "");
+        properties.setProperty("", "");
 
         KafkaProducer<String, String> producer = new KafkaProducer<String, String>(properties);
 
@@ -46,7 +48,7 @@ public class ProducerDemoKeys {
                         logger.error("Errors while producing", ex);
                     }
                 }
-            }); // dont do this
+            }).get(); // dont do this
         }
 
         //  flush
